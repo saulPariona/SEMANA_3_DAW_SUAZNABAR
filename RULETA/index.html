@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ruleta Aleatoria - Aula Virtual</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <div class="contenedor-app" id="contenedorApp">
+
+    <!-- ================= PANEL IZQUIERDO: RULETA ================= -->
+    <div class="panel-ruleta">
+
+      <div class="caja-respuesta">
+        <div class="bloque-titulo-respuesta" id="bloqueTitulo" title="Clic para renombrar">
+          <div class="titulo-respuesta" id="tituloRespuesta" contenteditable="false" spellcheck="false">RESPUESTA</div>
+          <div class="subtitulo-resultado" id="subtituloResultado">Presiona Iniciar para girar</div>
+        </div>
+        <div class="controles-superiores">
+          <button id="botonIniciar" class="boton boton-iniciar" type="button">Iniciar</button>
+          <button id="botonReiniciar" class="boton boton-reiniciar" type="button">Reiniciar</button>
+        </div>
+      </div>
+
+      <div class="zona-ruleta" id="zonaRuleta">
+        <canvas id="lienzoRuleta" width="520" height="520"></canvas>
+        <div class="puntero-rojo" id="punteroRojo"></div>
+        <button class="boton-centro" id="botonCentro" type="button">haz clic<br>para girarlo</button>
+      </div>
+
+    </div>
+
+    <!-- ================= PANEL DERECHO: DATOS ================= -->
+    <div class="panel-control">
+
+      <div class="contenedor-texto" id="contenedorTexto">
+        <div class="capa-resaltado" id="capaResaltado" aria-hidden="true"></div>
+        <textarea
+          id="areaTexto"
+          class="area-texto"
+          spellcheck="false"
+          wrap="off"
+          readonly
+          aria-label="Elementos de la ruleta, uno por línea"
+        ></textarea>
+      </div>
+
+      <div class="fila-botones-control">
+        <button id="botonTitulo" class="boton-pequeno" type="button">Título</button>
+        <button id="botonEditar" class="boton-pequeno" type="button">Editar</button>
+        <button id="botonEsconder" class="boton-pequeno" type="button">esconder...</button>
+      </div>
+
+      <div class="lista-atajos">
+        <div class="atajo"><kbd>SPACE</kbd><span>Gíralo</span></div>
+        <div class="atajo"><kbd>S</kbd><span>Ocultar el elemento seleccionado</span></div>
+        <div class="atajo"><kbd>R</kbd><span>Reiniciar</span></div>
+        <div class="atajo"><kbd>E</kbd><span>Editar</span></div>
+        <div class="atajo"><kbd>F</kbd><span>Pantalla completa</span></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="mensaje-aviso" id="mensajeAviso"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
