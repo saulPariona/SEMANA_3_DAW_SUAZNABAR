@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aplicacion para sortear participantes en equipos de forma aleatoria.">
+  <title>Sorteo de equipos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Organizador de grupos</p>
+        <h1>Sorteo de equipos</h1>
+        <p class="intro">Distribuye a tus participantes de forma rápida, clara y aleatoria.</p>
+      </div>
+      <div class="header-mark" aria-hidden="true">✦</div>
+    </header>
+
+    <section class="workspace" aria-label="Configuración del sorteo">
+      <section class="participants-panel">
+        <div class="section-heading">
+          <span class="step-number">1</span>
+          <div>
+            <h2>Ingresa los participantes</h2>
+            <p>Escribe un nombre por línea.</p>
+          </div>
+        </div>
+
+        <label class="sr-only" for="participants">Lista de participantes</label>
+        <textarea id="participants" rows="13" placeholder="Ejemplo:\nAna\nBruno\nCarla\nDiego" spellcheck="false"></textarea>
+        <div class="textarea-footer">
+          <span id="participant-count">0 participantes</span>
+          <span id="participant-status" class="status-message">Máximo 100 participantes</span>
+        </div>
+      </section>
+
+      <section class="settings-panel">
+        <div class="section-heading">
+          <span class="step-number">2</span>
+          <div>
+            <h2>Cómo dividir</h2>
+            <p>Elige el criterio para formar los equipos.</p>
+          </div>
+        </div>
+
+        <fieldset class="radio-group">
+          <legend class="sr-only">Criterio de división</legend>
+          <label class="radio-option">
+            <input type="radio" name="split-mode" value="teams" checked>
+            <span class="radio-control" aria-hidden="true"></span>
+            <span>Cantidad de equipos</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="split-mode" value="members">
+            <span class="radio-control" aria-hidden="true"></span>
+            <span>Participantes por equipo</span>
+          </label>
+        </fieldset>
+
+        <label class="field-label" for="split-value">Cantidad</label>
+        <select id="split-value" aria-label="Cantidad para dividir"></select>
+        <p id="split-help" class="field-help">Se crearán equipos equilibrados.</p>
+
+        <div class="section-heading title-heading">
+          <span class="step-number">3</span>
+          <div>
+            <h2>Título</h2>
+            <p>Personaliza el nombre de tus equipos.</p>
+          </div>
+        </div>
+
+        <label class="field-label" for="team-title">Título de los equipos</label>
+        <input id="team-title" type="text" maxlength="40" placeholder="Ejemplo: Equipo" autocomplete="off">
+        <p class="field-help">Si lo dejas vacío, se usará “Equipo”.</p>
+
+        <button id="draw-button" class="draw-button" type="button">
+          <span aria-hidden="true">✦</span>
+          Sortear equipos
+        </button>
+      </section>
+    </section>
+
+    <section id="results" class="results" aria-live="polite" hidden>
+      <div class="results-heading">
+        <div>
+          <p class="eyebrow">Resultado</p>
+          <h2 id="results-title">Tus equipos</h2>
+        </div>
+        <button id="redraw-button" class="secondary-button" type="button">Volver a sortear</button>
+      </div>
+      <div id="teams-grid" class="teams-grid"></div>
+    </section>
+  </main>
+</body>
+</html>
