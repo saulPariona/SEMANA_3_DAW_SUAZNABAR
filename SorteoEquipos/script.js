@@ -1,22 +1,5 @@
 /* =========================================================
    SORTEO DE EQUIPOS - Punto 2 de la Práctica Calificada 3
-   Mi parte del trabajo grupal: F3 (generar y mostrar
-   resultados) y F4 (descargar JPG / copiar texto / copiar
-   por columnas).
-
-   PUNTOS DE INTEGRACIÓN con la parte de mi compañero/a
-   (F1: lista de participantes con localStorage, F2:
-   configuración de cantidad de equipos o participantes por
-   equipo + título):
-     - Debe existir un textarea con id="area-participantes"
-     - Debe existir un input de radio name="modo-division"
-       con valores "equipos" o "porEquipo"
-     - Debe existir un <select id="select-valor-division">
-       con la cantidad elegida como "value"
-     - Debe existir un input id="input-titulo-sorteo"
-   Si mi compañero/a nombra distinto sus elementos, solo hay
-   que actualizar los "document.getElementById(...)" de la
-   sección "LECTURA DEL FORMULARIO" de abajo.
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', inicializarAplicacion);
