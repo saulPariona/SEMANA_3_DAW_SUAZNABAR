@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorteo de Equipos - Aula Virtual</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ======================================================= -->
+    <!-- PANTALLA 1: Formulario                                   -->
+    <!-- NOTA PARA EL EQUIPO: esta pantalla corresponde a F1 y F2 -->
+    <!-- (los está trabajando otro integrante). Aquí hay una      -->
+    <!-- versión funcional mínima solo para poder probar la F3    -->
+    <!-- y la F4, que son mi parte. Al hacer el merge, reemplazar -->
+    <!-- este bloque por el definitivo de mi compañero/a,         -->
+    <!-- respetando los IDs que usa script.js (ver comentarios    -->
+    <!-- dentro de script.js, sección "PUNTOS DE INTEGRACIÓN").   -->
+    <!-- ======================================================= -->
+    <main id="pantalla-formulario" class="pantalla activa">
+      <header class="encabezado">
+        <span class="etiqueta-app">Aula Virtual</span>
+        <h1>Sorteo de equipos</h1>
+        <p class="subtitulo">
+          Arma equipos al azar a partir de una lista de participantes.
+        </p>
+      </header>
+
+      <section class="tarjeta">
+        <div class="fila-formulario">
+          <div class="columna">
+            <label for="area-participantes">1. Ingresa los participantes</label>
+            <textarea
+              id="area-participantes"
+              placeholder="Cada participante en una línea nueva"
+              maxlength="5000"
+              rows="12"
+            ></textarea>
+            <div class="contador-participantes">
+              <span id="contador-numero">0</span> participantes
+            </div>
+          </div>
+
+          <div class="columna">
+            <label>2. ¿Cómo dividir?</label>
+            <div class="opciones-modo">
+              <label class="opcion-radio">
+                <input
+                  type="radio"
+                  name="modo-division"
+                  value="equipos"
+                  checked
+                />
+                Cantidad de equipos
+              </label>
+              <label class="opcion-radio">
+                <input type="radio" name="modo-division" value="porEquipo" />
+                Participantes por equipo
+              </label>
+            </div>
+
+            <select id="select-valor-division">
+              <option value="2">2 equipos</option>
+              <option value="3">3 equipos</option>
+              <option value="4">4 equipos</option>
+              <option value="5">5 equipos</option>
+              <option value="6">6 equipos</option>
+            </select>
+
+            <label for="input-titulo-sorteo">3. Título del sorteo</label>
+            <input
+              type="text"
+              id="input-titulo-sorteo"
+              placeholder="Ej: Trabajo final - Grupo A"
+            />
+
+            <div class="acciones-formulario">
+              <button
+                id="boton-limpiar"
+                class="boton boton-secundario"
+                type="button"
+              >
+                Limpiar
+              </button>
+              <button
+                id="boton-generar"
+                class="boton boton-primario"
+                type="button"
+              >
+                Generar equipos
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======================================================= -->
+    <!-- PANTALLA 2: Resultados                                   -->
+    <!-- ESTA ES MI PARTE: F3 (generación y despliegue de los     -->
+    <!-- equipos) y F4 (los 3 botones: descargar JPG, copiar al   -->
+    <!-- portapapeles y copiar por columnas).                     -->
+    <!-- ======================================================= -->
+    <main id="pantalla-resultados" class="pantalla">
+      <header class="encabezado">
+        <button id="boton-volver" class="boton boton-texto" type="button">
+          &larr; Volver a editar
+        </button>
+        <h1 id="titulo-resultados">Resultado del sorteo</h1>
+      </header>
+
+      <section id="contenedor-equipos" class="contenedor-equipos">
+        <!-- Aquí script.js inserta un rectángulo por cada equipo -->
+      </section>
+
+      <footer class="barra-acciones">
+        <button
+          id="boton-descargar-jpg"
+          class="boton boton-primario"
+          type="button"
+        >
+          Descargar como JPG
+        </button>
+        <button
+          id="boton-copiar-texto"
+          class="boton boton-secundario"
+          type="button"
+        >
+          Copiar al portapapeles
+        </button>
+        <button
+          id="boton-copiar-columnas"
+          class="boton boton-secundario"
+          type="button"
+        >
+          Copiar por columnas
+        </button>
+      </footer>
+
+      <p id="mensaje-estado" class="mensaje-estado" aria-live="polite"></p>
+    </main>
+
+    <!-- Área de trabajo oculta usada por la descarga en JPG (canvas) -->
+    <canvas id="lienzo-exportar" style="display: none"></canvas>
+
+    <script src="script.js"></script>
+  </body>
+</html>
